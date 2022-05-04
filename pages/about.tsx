@@ -1,8 +1,15 @@
 import React from 'react';
+import {useRouter} from "next/router";
 
-const About = () => {
+export interface AboutPageProps {
+}
+
+export default function About(props: AboutPageProps) {
+    const router = useRouter();
+    console.log("query", router.query);
+
     const handleClick = () => {
-        console.log(12312312);
+        console.log('Hello world');
     }
 
     return (
@@ -17,4 +24,10 @@ const About = () => {
     );
 };
 
-export default About;
+export async function getServerSideProps() {
+    return {
+        props: {
+
+        }
+    }
+}
