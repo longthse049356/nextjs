@@ -1,33 +1,21 @@
-import React from 'react';
-import {useRouter} from "next/router";
+import React from "react";
+import dynamic from "next/dynamic";
+import { useRouter } from "next/router";
+import Header from "@/component/common/Header";
+// const Header = dynamic(() => import("@/component/common/Header"), {
+//   ssr: false,
+// });
 
-export interface AboutPageProps {
-}
+export interface AboutPageProps {}
 
 export default function About(props: AboutPageProps) {
-    const router = useRouter();
-    console.log("query", router.query);
-
-    const handleClick = () => {
-        console.log('Hello world');
-    }
-
-    return (
-        <>
-            <h1>
-                This is about you
-            </h1>
-            <button onClick={handleClick}>
-                Click mee!!
-            </button>
-        </>
-    );
-};
+  const router = useRouter();
+  console.log("Render About");
+  return <Header />;
+}
 
 export async function getServerSideProps() {
-    return {
-        props: {
-
-        }
-    }
+  return {
+    props: {},
+  };
 }
